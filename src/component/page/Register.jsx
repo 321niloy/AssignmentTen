@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form, Link } from 'react-router-dom';
 import { Authcontex } from '../../Authprovider';
 
 const Register = () => {
   const {createuser} = useContext(Authcontex)
+  const [error,seterror] = useState('')
 
   const handleRegister = event =>{
     event.preventDefault()
@@ -13,6 +14,12 @@ const Register = () => {
     const name =form.name.value
     const Photourl = form.photo.value
     console.log(email,password,name,Photourl)
+    seterror("") 
+
+    if(password.length < 6){
+      seterror('PassWord must be six cherecter or longer')
+      return;
+  }
 
     createuser (email,password)
     .then(result => {
@@ -22,6 +29,7 @@ const Register = () => {
     })
     .catch(error =>{
       console.log(error)
+      seterror(error.massage)
     })
   }
 
@@ -64,6 +72,7 @@ const Register = () => {
           </label>
           <p>You have an Account<Link to="/login" className='text-primary ms-2'>Login</Link></p>
         </div>
+        <p className='text-rose-600'>{error}</p>
         <div className="form-control mt-6">
           <button type="submit" className="btn btn-primary">Register</button>
         </div>
