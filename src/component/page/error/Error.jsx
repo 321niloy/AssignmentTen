@@ -4,7 +4,7 @@ import error from '../../../../public/image/error.jpg'
 const Error = () => {
     return (
         <div>
-            <img src={error} alt="" />
+            <img className='w-fit h-fit' src={error} alt="" />
         </div>
     );
 };

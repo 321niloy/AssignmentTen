@@ -13,7 +13,6 @@ const RecipeCard = ({recipecard}) => {
       <div className="badge badge-secondary">{rating}</div>
     </h2>
     <p ><span className='font-bold italic'>Recipe: </span>{recipe.slice(0,50)} ........<Link to={`/detailsrecipe/${code}`}><div className="badge badge-secondary badge-outline">Seemore</div></Link></p>
-    <p>{code}</p>
   </div>
 </div>
         </div>

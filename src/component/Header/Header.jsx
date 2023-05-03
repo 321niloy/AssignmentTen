@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import avatar from '../../../public/image/avatar.jpg'
+import  { Authcontex } from '../../Authprovider';
+import withoutlogin from '../../../src/assets/unnamed.png'
 
 const Header = () => {
+    const {user,logout} =useContext(Authcontex)
+
+    const handleLogout = () =>{
+        logout()
+        .then()
+        .catch(error => console.log(error))
+      }
+
+
     return (
         <div>
             <h1 className='text-center text-6xl drop-shadow-2xl text-yellow-800 font-serif'>GramBanglar Recipe</h1>
@@ -17,11 +28,11 @@ const Header = () => {
 </label>
 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 <li><Link>Home</Link></li>
-
+<li><Link>Order Now</Link></li>
 <li><Link>Blog</Link></li>
 </ul>
 </div>
-<Link to="/" className="btn btn-ghost normal-case lg:text-xl ms-0 ps-0">Recipe</Link>
+<Link to="/" className="font-bold lg:text-xl ms-0 ps-0">Recipe</Link>
 </div>
 <div className="navbar-center hidden lg:flex">
 <ul className="menu menu-horizontal px-1">
@@ -32,14 +43,27 @@ const Header = () => {
 </div>
 <div className="navbar-end">
 {/* ////////////////////////////////// */}
-<div className="avatar online">
-<div className="w-12 lg:w-18 lg:me-2 rounded-full">
-<img src={avatar} />
+{
+    user?<div className="avatar online">
+    <div className="w-12 lg:w-18 me-2 rounded-full">
+    <img src={avatar} />
+    </div>
+    </div> :
+
+<div className="avatar">
+<div className="w-12 lg:w-18 me-2 rounded-full ">
+  <img src={withoutlogin} />
 </div>
 </div>
+}
 {/* //////////////////////// */}
+{
+    user? <button onClick={handleLogout} className="btn btn-outline btn-error">Logout</button> : 
+    <>
 <Link  to="login" className="btn btn-outline btn-warning">Login</Link>
-<Link to="register" className="btn btn-outline btn-success lg:ms-2 ">Register</Link>
+<Link to="register" className="btn btn-outline btn-success ms-2 ">Register</Link>
+</>
+}
   </div>
 </div>
             </div>
@@ -48,3 +72,7 @@ const Header = () => {
 };
 
 export default Header;
+<div>
+<Link  to="login" className="btn btn-outline btn-warning">Login</Link>
+<Link to="register" className="btn btn-outline btn-success lg:ms-2 ">Register</Link>
+</div>

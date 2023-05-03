@@ -17,7 +17,7 @@ const Home = () => {
              <div>
                 <h1 className='text-4xl text-yellow-800 text-center mt-3 mb-5 italic hover:not-italic font-bold'>Hare is Ours Cheifs details and Theirs Best Recipes</h1>
              </div>
-            <div className='grid grid-cols-3'>
+            <div className='lg:grid lg:grid-cols-3'>
             {
                 carddata.map(card => <Cardslider key={carddata.id} card={card}></Cardslider>)
              }

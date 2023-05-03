@@ -8,12 +8,15 @@ import {
 } from "react-router-dom";
 import Main from './component/Main';
 import Home from './component/Home';
-import Cardslider from './component/page/cardslider/Cardslider';
 import Login from './component/page/login/Login';
 import Register from './component/page/Register';
 import Recipe from './component/page/Recipe';
 import Error from './component/page/error/Error';
-import Detailsrecipe from './component/page/Detailsrecipe';
+
+import Authprovider from './Authprovider';
+import PrivateRoute from './route/Privateroute';
+import Detailsrecipe from './detailsrecipe/Detailsrecipe';
+
 
 const router = createBrowserRouter([
   {
@@ -35,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path:'Allrecipe/:id',
-        element:<Recipe></Recipe>,
+        element:<PrivateRoute><Recipe></Recipe></PrivateRoute>,
         loader:({params})=> fetch(`http://localhost:9000/Allrecipe/${params.id}`)
       },
       {
@@ -55,7 +58,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+     <Authprovider>
      <RouterProvider router={router} />
-   
+     </Authprovider>
+     
   </React.StrictMode>,
 )
