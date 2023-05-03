@@ -12,6 +12,8 @@ import Cardslider from './component/page/cardslider/Cardslider';
 import Login from './component/page/login/Login';
 import Register from './component/page/Register';
 import Recipe from './component/page/Recipe';
+import Error from './component/page/error/Error';
+import Detailsrecipe from './component/page/Detailsrecipe';
 
 const router = createBrowserRouter([
   {
@@ -35,9 +37,20 @@ const router = createBrowserRouter([
         path:'Allrecipe/:id',
         element:<Recipe></Recipe>,
         loader:({params})=> fetch(`http://localhost:9000/Allrecipe/${params.id}`)
+      },
+      {
+     path:'detailsrecipe/:code',
+     element:<Detailsrecipe></Detailsrecipe>,
+     loader:() => fetch("http://localhost:9000/Allrecipe")
       }
+      
     ]
   },
+  { 
+      path:'*',
+      element:<Error></Error>
+  
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
