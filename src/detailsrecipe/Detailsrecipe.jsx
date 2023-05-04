@@ -18,7 +18,7 @@ const Detailsrecipe = () => {
         <div className=' bg-zinc-200'>
           
           <div className="mt-10 mb-10 card lg:card-side bg-base-100 shadow-xl drop-shadow-lg ">
-  <figure className='imagesizing'><img className='' src={details.img} alt="Album"/></figure>
+  <figure className='imagesizing h-96 w-80'><img className='' src={details.img} alt="Album"/></figure>
   <div className="card-body">
     <h2 className="card-title text-6xl">{details.name}</h2>
     <p>{details.recipe}</p>

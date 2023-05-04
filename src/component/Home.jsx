@@ -10,7 +10,7 @@ import LastHome from './page/LastHome';
 const Home = () => {
     const [carddata,setCarddata] = useState([]);
     useEffect(() =>{
-    fetch('http://localhost:9000/card')
+    fetch('https://assignment-ten-server-321niloy.vercel.app/card')
     .then(response => response.json())
     .then(data =>setCarddata(data) )
     } ,[])

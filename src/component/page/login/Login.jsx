@@ -66,7 +66,7 @@ const gitsignin =() =>{
  
     return (
         <div>
-            <Form onSubmit={handleLogin} className="hero  bg-pink-50">
+            <Form onSubmit={handleLogin} className="hero min-h-screen bg-pink-50">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Login now!</h1>
@@ -97,15 +97,14 @@ const gitsignin =() =>{
         <div className="form-control mt-6">
           <button type='submit' className="btn btn-primary">Login</button>
         </div>
-       
+       <div className='flex justify-center'>
+       <button onClick={gitsignin}  className="btn btn-outline"><FaGitSquare/><span className='ms-2'>Github</span></button>
+       <button  onClick={googlehandler}  className="btn btn-outline btn-warning ms-2"><FaGoogle/> <span className='ms-2'>Google</span></button>
+       </div>
       </div>
     </div>
   </div>
 </Form>
-<div className='flex ms-20  mb-5'>
-       <button onClick={gitsignin}  className="btn btn-outline"><FaGitSquare/><span className='ms-2'>Github</span></button>
-       <button  onClick={googlehandler}  className="btn btn-outline btn-warning ms-2"><FaGoogle/> <span className='ms-2'>Google</span></button>
-       </div>
         </div>
     );
 };

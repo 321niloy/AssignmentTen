@@ -9,7 +9,7 @@ const RecipeCard = ({recipecard}) => {
     return (
         <div className='flex justify-center mb-5'>
             <div className="card w-96 bg-base-100 shadow-xl">
-  <figure><img className="h-80 w-full"src={img} alt="Shoes" /></figure>
+  <figure className="h-80 w-full"><img src={img} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">
       {name}

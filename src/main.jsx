@@ -42,12 +42,12 @@ const router = createBrowserRouter([
       {
         path:'Allrecipe/:id',
         element:<PrivateRoute><Recipe></Recipe></PrivateRoute>,
-        loader:({params})=> fetch(`http://localhost:9000/Allrecipe/${params.id}`)
+        loader:({params})=> fetch(`https://assignment-ten-server-321niloy.vercel.app/Allrecipe/${params.id}`)
       },
       {
      path:'detailsrecipe/:code',
      element:<PrivateRoute><Detailsrecipe></Detailsrecipe></PrivateRoute>,
-     loader:() => fetch("http://localhost:9000/Allrecipe")
+     loader:() => fetch("https://assignment-ten-server-321niloy.vercel.app/Allrecipe")
       },
       {
         path:"blog",
