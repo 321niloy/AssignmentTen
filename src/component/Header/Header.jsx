@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import avatar from '../../../public/image/avatar.jpg'
 import  { Authcontex } from '../../Authprovider';
 import withoutlogin from '../../../src/assets/unnamed.png'
+
+
+
 
 const Header = () => {
     const {user,logout} =useContext(Authcontex)
@@ -11,6 +14,14 @@ const Header = () => {
         logout()
         .then()
         .catch(error => console.log(error))
+      }
+
+      const NavLinkstyle = ({isActive}) =>{
+
+        return{
+          fontWeight: isActive? "bold" :"normal",
+          backgroundColor: isActive?"#F9B5A5" :"#F7E1DB",
+        }
       }
 
 
@@ -27,10 +38,10 @@ const Header = () => {
 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
 </label>
 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-<li><Link to="/">Home</Link></li>
-<li><Link>Order Now</Link></li>
+<li><NavLink style={NavLinkstyle} to="/">Home</NavLink></li>
+<li><NavLink style={NavLinkstyle} to="/order">Order Now</NavLink></li>
 {
-  user && <li><Link to="/blog">Blog</Link></li>
+  user && <li><NavLink style={NavLinkstyle} to="/blog">Blog</NavLink></li>
 }
 </ul>
 </div>
@@ -38,27 +49,24 @@ const Header = () => {
 </div>
 <div className="navbar-center hidden lg:flex">
 <ul className="menu menu-horizontal px-1">
-<li><Link to="/">Home</Link></li>
-<li><Link>Order Now</Link></li>
+ <li><NavLink className="me-2" style={NavLinkstyle} to="/">Home</NavLink></li>
+
+ <li><NavLink className="me-2" style={NavLinkstyle} to="/order">Order Now</NavLink></li>
+
 {
-  user && <li><Link to="/blog">Blog</Link></li>
+  user && <li><NavLink style={NavLinkstyle} to="/blog">Blog</NavLink></li>
 }
 </ul>
 </div>
 <div className="navbar-end">
 {/* ////////////////////////////////// */}
 {
-    user?<div className="avatar online">
+    user && <div className="avatar online">
     <div className="w-12 lg:w-18 me-2 rounded-full">
     <img src={avatar} />
     </div>
-    </div> :
+    </div> 
 
-<div className="avatar">
-<div className="w-12 lg:w-18 me-2 rounded-full ">
-  <img src={withoutlogin} />
-</div>
-</div>
 }
 {/* //////////////////////// */}
 {

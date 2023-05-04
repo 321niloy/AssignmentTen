@@ -17,6 +17,7 @@ import Authprovider from './Authprovider';
 import PrivateRoute from './route/Privateroute';
 import Detailsrecipe from './detailsrecipe/Detailsrecipe';
 import Blog from './component/page/Blog';
+import Order from './component/page/Order';
 
 
 const router = createBrowserRouter([
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path:"blog",
         element:<PrivateRoute><Blog></Blog></PrivateRoute>
+      },
+      {
+        path:"order",
+        element:<PrivateRoute><Order></Order></PrivateRoute>
       }
       
     ]
