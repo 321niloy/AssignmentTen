@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeCard = ({recipecard}) => {
     const {id,name,img,rating,recipe,code}= recipecard 
-    const notify = () => toast("Added");
+    const notify = () => toast(name+" added");
     return (
         <div className='flex justify-center mb-5'>
             <div className="card w-96 bg-base-100 shadow-xl">
