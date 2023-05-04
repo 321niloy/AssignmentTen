@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import avatar from '../../../public/image/avatar.jpg'
 import  { Authcontex } from '../../Authprovider';
-import withoutlogin from '../../../src/assets/unnamed.png'
 
 
 

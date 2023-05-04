@@ -2,8 +2,8 @@ import React from 'react';
 
 const Order = () => {
     return (
-        <div>
-            <h1>Upcoming </h1>
+        <div className='font-extrabold text-center align-middle text-6xl mt-16'>
+            <h1>Working.................. </h1>
         </div>
     );
 };
