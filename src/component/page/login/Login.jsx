@@ -5,6 +5,7 @@ import { Authcontex } from '../../../Authprovider';
 
 
 const Login = () => {
+  const [error,seterror] = useState('')
 const {googlesignin,GitLOGin ,SignIn} =useContext(Authcontex)
 const navigate = useNavigate()
 const location = useLocation()
@@ -28,6 +29,7 @@ const handleLogin = event =>{
   })
   .catch(error =>{
     console.log(error)
+    seterror("password or email is wrong",error.massage)
   })
 }
 
@@ -90,7 +92,7 @@ const gitsignin =() =>{
         </div>
         
             <p className='text-green-500'>{happen}</p>
-      
+            <p className='text-red-800'>{error}</p>
         <div className="form-control mt-6">
           <button type='submit' className="btn btn-primary">Login</button>
         </div>
