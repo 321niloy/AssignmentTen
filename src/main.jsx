@@ -44,12 +44,12 @@ const router = createBrowserRouter([
       },
       {
      path:'detailsrecipe/:code',
-     element:<Detailsrecipe></Detailsrecipe>,
+     element:<PrivateRoute><Detailsrecipe></Detailsrecipe></PrivateRoute>,
      loader:() => fetch("http://localhost:9000/Allrecipe")
       },
       {
         path:"blog",
-        element:<Blog></Blog>
+        element:<PrivateRoute><Blog></Blog></PrivateRoute>
       }
       
     ]
